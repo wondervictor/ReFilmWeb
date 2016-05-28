@@ -9,6 +9,11 @@
 header('Content-type:text/html;charset=utf-8');
 include_once ("simple_html_dom.php");
 
+$soap = new  SoapServer(null,array('uri'=>''));
+$soap->addFunction(SOAP_FUNCTIONS_ALL);
+$soap->handle();
+
+
 class Crawer {
 
     var $base_url;
@@ -55,6 +60,7 @@ class Crawer {
 
         $this->sendResponse();
     }
+
 
 }
 
